@@ -526,19 +526,18 @@ footer img{
         top: 8px;
     }
     .menu {
-        margin-left: 8px;
+        display: flex;
+        margin: 0 0;
         visibility: hidden;
-        position: absolute;
         top: 100px;
         height: fit-content;
-        left: 0;
-        width: 97.1%;
+        width: 100%;    
         background-color: #FAC45B;
-        
         z-index: 1;
     }
     
     .menu ul {
+        justify-self: center;
         display: flex;
         flex-flow: column wrap;
         width: 100%;
