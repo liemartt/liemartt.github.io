@@ -567,6 +567,7 @@ footer img{
     
     #menu-toggle:checked ~ .menu {
         visibility: visible;
+        visibility: visible;
     }
 
     .proposals div{
@@ -574,7 +575,3 @@ footer img{
     }
 
 }
-
-
-
-
