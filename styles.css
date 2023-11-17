@@ -1,4 +1,7 @@
 *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -270,24 +273,6 @@ nav img{
 
 }   
 
-
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: flex-start;
-    content: "";
-    position: absolute; 
-    left: 0; right: 0; 
-    top:0;
-    height: 60%;
-    
-    background: linear-gradient(#82b369d3, #fac55bd3);
-
-    opacity: 0;
-    transform: translateY(50%);
-    transition: all 1s;
-
-}
 .book-card:hover::before {
     transform: translateY(0%);
     transition: all 1s;

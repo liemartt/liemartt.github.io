@@ -1,11 +1,12 @@
-*
-{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 body{
   overflow: hidden;
+  height: 100vh;
 }
 section
 {
@@ -13,111 +14,51 @@ section
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100%;
   background: linear-gradient(to bottom, #205fc5, #24313a);
-  
+  overflow: hidden;
 }
 
 section .color
 {
   position: absolute;
-  filter: blur(1000px);
+  filter: blur(200px);
 }
 
-section .color:nth-child(1) 
+section .color:nth-child(1)
 {
-  top: -350px;
-  width: 700px;
-  height: 700px;
-  background: #6c51f0;
+  top: 10%;
+  width: 50%;
+  right: 50%;
+  height: 50%;
+  background: #FAC45B;
 }
 
 section .color:nth-child(2)
 {
-  bottom: -150px;
-  left: 100px;
-  width: 400px;
-  height: 500px;
-  background: rgb(232, 240, 81);
+  bottom: 10%;
+  left: 60%;
+  width: 40%;
+  height: 70%;
+  background: #82b369;
+  
 }
 
 section .color:nth-child(3)
 {
-  bottom: 50px;
-  right: 100px;
-  width: 400px;
-  height: 500px;
-  background: #ec5dc8;
+  bottom: 5%;
+  right: 30%;
+  width: 70%;
+  height: 30%;
+  background: #db5cdb;
 }
 
-.box
-{
-  position: relative;
-}
-
-.box .square
-{
-  position: absolute;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  animation: animate-square 7s ease-in-out infinite;
-  animation-delay: calc(-1s * var(--i));
-}
-
-@keyframes animate-square 
-{
-  0%,100%
-  {
-    transform: translateY(-40px);
-  }
-  50%
-  {
-    transform: translateY(40px);
-  }
-}
-
-.box .square:nth-child(1)
-{
-  top: -50px;
-  right: -60px;
-  width: 100px;
-  height: 100px;
-}
-.box .square:nth-child(2)
-{
-  top: 150px;
-  left: -100px;
-  width: 120px;
-  height: 120px;
-  z-index: 2;
-}
-.box .square:nth-child(3)
-{
-  bottom: 50px;
-  right: -60px;
-  width: 80px;
-  height: 80px;
-  z-index: 2;
-}
-.box .square:nth-child(4)
-{
-  bottom: -80px;
-  left: 100px;
-  width: 55px;
-  height: 55px;
-}
-.box .square:nth-child(5)
-{
-  top: -80px;
-  left: 140px;
-  width: 70px;
-  height: 70px;
-}
 .container
 {
   position: relative;
   width: 100%;
-  background: rgba(255,255,255,0.1);
+  height: 100%;
+  background: rgba(161, 128, 39, 0.147);
   border-radius: 10px;
   display: flex;
   justify-content: center;
