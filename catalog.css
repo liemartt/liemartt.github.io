@@ -68,7 +68,7 @@ nav img{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    width: 60%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -99,239 +99,14 @@ nav img{
     appearance: none;
 
 }
-.dignities{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 67px;
-    margin-bottom: 100px;
-}
-.card{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    align-self: stretch;
-    gap:16px;
-}
-.card{
-    position: relative;
-    color: #000;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none;
-}
-.card img{
-    width: 100px;
-    height: 100px;
-}
-
-.proposals{
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    align-items: center;
-    gap:24px;
-
-}
-.proposals div{
-    position: relative;
-    display: flex;
-    width: 35%;
-    height: 100%;
-    flex-flow: column wrap;
-    justify-content: center;
-    gap:24px;
-}
-
-.proposals div a img{
-    width: auto;
-    height: auto;
-    align-self: flex-end;
-    flex-shrink: 0;
-    
-}
-.propimg{
-
-    flex-shrink: 1;
-    border-radius: 10px;
-    width: 52%;
-    height: 472px;
-    border-style: groove;
-    border-color: #82b369;
-    border-width: 2px;
-   
-}
 
 
-.header-slider{
-    display: flex;
-    align-items: flex-start;
-    border-radius: 8px;
-    background: rgba(254, 182, 42, 0.25);
-    width: 100%;
-    margin-top: 54px;
-    margin-bottom: 36px;
-    font-size: 26px;
-    height: 47px;
-    justify-content: center;
-    align-items: center;
-    
-    
-}
-.books{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 48px;
+
+.main-title{
+    display: block;
+    margin: 0 45%;
 }
 
-
-.book-card{
-    display: flex;
-    position: relative;
-    flex-flow: column nowrap;
-    align-items: center;
-    height: 100%;
-    cursor: pointer;
-    overflow-wrap: break-word;
-    figure{
-        display: flex;
-        justify-content: center;
-        margin: 0;
-    }
-    figcaption{
-        display: flex;
-        position: absolute;
-        opacity: 0;
-        a{
-            text-decoration: none;
-            color:#fff;
-        }
-
-    }
-
-}   
-
-.book-card:hover::before {
-    transform: translateY(0%);
-    transition: all 1s;
-    opacity: 1; 
-    
-}
-
-
-.book-card:hover figcaption{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: center;
-    position: absolute;
-    color:#fff;
-    font-size: 16px;
-
-    bottom:0;
-    left:0;
-    right: 0;
-    opacity: 1;
-    transition: opacity 1s;
-} */
-
-.title{
-    color: #000;
-    text-align: center;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-.price{
-    color: #8D4600;
-    text-align: center;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.card-buttons{
-    display: flex;
-    width: 90%;
-    flex-flow: row wrap;
-    justify-content: space-around;
-
-}
-.card-buttons .card-button{
-    background: #FFB000;
-    width: 40%;
-    height: 42px;
-    transition: all 0.5s;
-    
-}
-.card-buttons .card-button:hover{
-    background: #82b369;
-    transition: all 0.5s;
-}
-
-
-.video{
-    display: flex;
-    margin-top: 50px;
-    flex-flow: row nowrap;
-    justify-content: center;
-    cursor: pointer;
-    width: fit-content;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-.video-text{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    opacity: 0;
-    color: #fff;
-    width: 70%;
-    height: 70%;
-    bottom:15%;
-    left:-5%;
-    right: 0;
-    transform: translateX(-300%);
-    transition: all 1s; 
-}
-
-.video::before{
-    content: "";
-    display: flex;
-    position: absolute;
-    opacity: 0;
-    background: #000000d3;
-    width: 70%;
-    height: 70%;
-    bottom:15%;
-    left:-5%;
-    right: 0;
-    transform: translateX(-300%);
-    transition: all 1s;
-}
-
-.video:hover::before{
-    opacity: 1;
-    transform: translateX(0%);
-    transition: all 1s;
-}
-.video:hover .video-text{
-    opacity: 1;
-    transform: translateX(0%);
-    transition: all 1s;
-}
 
 
 footer{
@@ -390,6 +165,9 @@ footer img{
 .a:hover::before, .card:hover::before {
   transform: scaleX(1);
 }
+
+
+
 
 @media (max-width:1000px){
     footer img{
@@ -512,8 +290,3 @@ footer img{
     }
 
 }
-
-
-
-
-
