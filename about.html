@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/fd9c503804.js" crossorigin="anonymous"></script>
+    <script defer src = "about.js"></script>
     <link rel = "stylesheet" href = "about.css">
     <title>About</title>
 </head>
 <body>
     <header>
         <a class = "logo-ref" href = "index.html"><img src = "images/logo.svg"></a>
-        <input type="checkbox" id="menu-toggle">
+        <button id = "menu-toggle"></button>
         <label for="menu-toggle" id="menu-button">
-            <span class="bar"></span>
+            <span class="firstLine"></span>
+            <span class="secondLine"></span>
+            <span class="thirdLine"></span>
         </label>
 
         <nav id = "menu1" class = "menu">
             <ul>
                 <a id = "registration" href = "registration.html" class = "a">Регистрация</a>
                 <a href = # class = "a">Акции</a>
-                <a href = # class = "a">Каталог</a>
+                <a href = "catalog.html" class = "a">Каталог</a>
                 <a href = # class = "a">О нас</a>
                 <a href = # class = "shopcart"><img src = "images/shopping_cart.png"><p id = "cartCounter">0</p></a>
                 <a href = #><img src = "images/user_logo.png"></a>
@@ -27,23 +30,24 @@
             </ul>
         </nav>
     </header>
-
-    <div class = "container">
-        <div class = "contacts">
-            <div class = "telegram"><a href = "https://t.me/liemartt"><p class="fa-brands fa-telegram">  Telegram</p></a></div>
-            <div class = "vk"><a href = "https://vk.com/teemkka"><p class="fa-brands fa-vk">  VK</p></a></div>
-            <div class = "whatsapp"><a href = "#"><p class="fa-brands fa-whatsapp">  WhatsApp</p></a></div>
-            <div class = "youtube"><a href = "https://www.youtube.com/@labirintruTV"><p class="fa-brands fa-youtube">  YouTube</p></a></div>
-            <div class = "address"><p>Адрес: Москва, ул. Улица, дом 0, корпус 0</p></div>
-        </div>
-        <div class="map">
-            <iframe
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A3b96e193b89808d90f0e30a8efef43f790404b954974dea3c1c470a5b1caee46&amp;source=constructor"
-                    width="100%"  frameborder="0">
-                </iframe>
+    <main id = "main">
+        <div class = "container">
+            <div class = "contacts">
+                <div class = "telegram"><a href = "https://t.me/liemartt"><p class="fa-brands fa-telegram">  Telegram</p></a></div>
+                <div class = "vk"><a href = "https://vk.com/teemkka"><p class="fa-brands fa-vk">  VK</p></a></div>
+                <div class = "whatsapp"><a href = "#"><p class="fa-brands fa-whatsapp">  WhatsApp</p></a></div>
+                <div class = "youtube"><a href = "https://www.youtube.com/@labirintruTV"><p class="fa-brands fa-youtube">  YouTube</p></a></div>
+                <div class = "address"><p>Адрес: Москва, ул. Улица, дом 0, корпус 0</p></div>
+            </div>
+            <div class="map">
+                <iframe
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A3b96e193b89808d90f0e30a8efef43f790404b954974dea3c1c470a5b1caee46&amp;source=constructor"
+                        width="100%"  frameborder="0">
+                    </iframe>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
     <footer>
         <div class = "div-footer">
             <h1>Каталог</h1>
