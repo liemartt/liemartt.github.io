@@ -166,6 +166,17 @@ footer img{
 }
 
 @media (max-width:600px){
+    footer{
+        justify-content:left;
+        margin-left: -30px;
+        gap: 40px;
+        font-size:small;
+        .a{
+            font-size:large;
+
+        }
+    }
+
     .contacts{
         grid-template-areas: 
         "VK"
