@@ -187,7 +187,8 @@ footer img{
         "YouTube"
         "Address";
         justify-content: left;
-        margin-left: 10px;
+        margin-left: 2%;
+        width: 98%;
     }
     #menu-button {
         display: flex;
