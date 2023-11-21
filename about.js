@@ -1,3 +1,4 @@
+document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
 function burgerMenu(){
     const button = document.querySelector("#menu-toggle");
     const label = document.querySelector("#menu-button");

@@ -5,16 +5,15 @@ function getBookByName(name){
     return null;
 }
 
-button_clear_cart.onclick = ()=> {
-    localStorage.cart = undefined;
-    location.reload();
-}
+
 
 function deleteBook(book){
     let section = document.querySelector(".books");
     let index = cart.findIndex(x=>x.name==book.name);
     cart.splice(index, 1);
     localStorage.cart = cart.map(x=>x.name).join(";");
+    localStorage.cartCounter = Number(localStorage.cartCounter)-1;
+    document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
     location.reload();
     // section.removeChild(book);
 }
@@ -69,7 +68,63 @@ function loadCartPage(){
         section.appendChild(div);
         finalPrice+=Number(book.price);
     }
+    if(finalPrice==0){
+        let p = document.createElement("p");
+        p.textContent = "Здесь пусто..";
+        p.style.fontSize = "x-large";
+        section.appendChild(p);
+    }
+    else {
+        let button = document.createElement("button");
+        button.id = "button_clear_cart";
+        button.textContent = "Очистить корзину"
+        section.appendChild(button);
+        document.querySelector("#button_clear_cart").onclick = ()=> {
+            localStorage.cart = undefined;
+            localStorage.cartCounter = 0;
+            location.reload();
+        }
+    }
     document.querySelector(".total").querySelector("p").textContent = "Итого: "+finalPrice+"руб.";
+    document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
+
 }
 loadCartPage();
 
+
+
+function burgerMenu(){
+    const button = document.querySelector("#menu-toggle");
+    const label = document.querySelector("#menu-button");
+    const firstLine = document.querySelector(".firstLine");
+    const secondLine = document.querySelector(".secondLine");
+    const thirdLine = document.querySelector(".thirdLine");
+    var isOpen = false;
+    button.onclick = ()=>{
+        
+        isOpen = !isOpen;
+        if(isOpen){
+            document.querySelector("#main").style.filter = "blur(10px)";
+            firstLine.style.transform = "rotate(-45deg)";
+            firstLine.style.top = "13px";
+            firstLine.style.backgroundColor = "red";
+            thirdLine.style.backgroundColor = "red";
+            thirdLine.style.transform = "rotate(45deg)";
+            secondLine.style.backgroundColor = "transparent";
+            document.querySelector(".menu").style.opacity = 1;
+            document.querySelector(".menu").style.transform = "translateY(0%)";
+        }
+        else{
+            document.querySelector("#main").style.filter = "blur(0px)";
+            firstLine.style.transform = "rotate(0deg)";
+            firstLine.style.top = "0px";
+            thirdLine.style.transform = "rotate(0deg)";
+            secondLine.style.backgroundColor = "black";
+            firstLine.style.backgroundColor = "black";
+            thirdLine.style.backgroundColor = "black";
+            document.querySelector(".menu").style.opacity = 0;
+            document.querySelector(".menu").style.transform = "translateY(-1000%)";
+        }
+    }
+}
+burgerMenu();

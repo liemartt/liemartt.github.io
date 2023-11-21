@@ -1,6 +1,100 @@
-let names = ["Тень ветра", "Игра престолов", "Столкновение цивилизаций", "Тысяча сияющих солнц", "Гарри Поттер и философский камень", "1984", "Атлант расправил плечи", "Мастер и Маргарита", "Милый друг", "Алхимик", "451 градус по фаренгейту", "Гарри Поттер и узник Азкабана", "Три товарища", "Дневник Анны Франк", "Песнь Льда и Пламени: Игра престолов", "Маленький принц"];
-let authors = ["Карлос Руис Сафон", "Джордж Р. Р. Мартин", "Сэмюэл Хантингтон", "Халед Хоссейни", "Дж. К. Роулинг", "Джордж Оруэлл", "Айн Рэнд", "Михаил Булгаков", "Стивен Кинг", "Пауло Коэльо", "Рэй бредбери", "Дж. К. Роулинг", "Эрих Мария Ремарк", "Анна Франк", "Джордж Р. Р. Мартин", "Антуан де Сент-Экзюпери"];
-let prices = ["1500", "800", "1200", "950", "600", "1700", "2000", "1300", "500", "900", "1100", "750", "1400", "1800", "1600", "1000"];
+var names = [
+    "1. 1984",
+    "2. Война и мир",
+    "3. Преступление и наказание",
+    "4. Гарри Поттер и философский камень",
+    "5. Мастер и Маргарита",
+    "6. Новый порядок",
+    "7. Зеленая миля",
+    "8. Властелин колец",
+    "9. Три товарища",
+    "10. Мечтают ли андроиды об электроовцах?",
+    "11. Великий Гэтсби",
+    "12. Маленький принц",
+    "13. Гарри Поттер и узник Азкабана",
+    "14. Атлант расправил плечи",
+    "15. Крестный отец",
+    "16. Сто лет одиночества",
+    "17. Гарри Поттер и Кубок огня",
+    "18. Метро 2033",
+    "19. Анна Каренина",
+    "20. Гарри Поттер и Дары Смерти",
+    "21. Тень горы",
+    "22. Дневник Анны Франк",
+    "23. Маугли",
+    "24. Война миров",
+    "25. Герой нашего времени",
+    "26. Игра престолов",
+    "27. Тринадцатая сказка",
+    "28. Пикник на обочине",
+    "29. Поднять корабль",
+    "30. Лолита"
+];
+  
+var authors = [
+    "Джордж Оруэлл",
+    "Лев Толстой",
+    "Фёдор Достоевский",
+    "Джоан Роулинг",
+    "Михаил Булгаков",
+    "Неизвестный Автор",
+    "Стивен Кинг",
+    "Дж.Р.Р. Толкиен",
+    "Эрих Мария Ремарк",
+    "Филип К. Дик",
+    "Фрэнсис Скотт Фицджеральд",
+    "Антуан де Сент-Экзюпери",
+    "Джоан Роулинг",
+    "Айн Рэнд",
+    "Марио Пьюзо",
+    "Габриэль Гарсиа Маркес",
+    "Джоан Роулинг",
+    "Дмитрий Глуховский",
+    "Лев Толстой",
+    "Джоан Роулинг",
+    "Грегори Дэвид Робертс",
+    "Анна Франк",
+    "Редьярд Киплинг",
+    "Герберт Уэллс",
+    "Михаил Лермонтов",
+    "Джордж Мартин",
+    "Диана Сеттерфилд",
+    "Аркадий и Борис Стругацкие",
+    "Владимир Набоков"
+];
+// Все цены на книги (предположим, что цены выражены в целых числах)
+var prices = [
+    1200,  
+    800,   
+    1500,  
+    4500,  
+    2700,  
+    3000,  
+    900,   
+    4200,  
+    1000,  
+    3500,  
+    500,   
+    800,   
+    1200,  
+    1800,  
+    2500,  
+    4000,  
+    1000,  
+    300,   
+    1500,  
+    5500,  
+    3000,  
+    700,   
+    400,   
+    900,   
+    1200,  
+    2000,  
+    1700,  
+    450,   
+    5600   
+];
+  
 var books = [];
 function Book(name, author, price, img){
     this.name = name;
@@ -18,7 +112,7 @@ createBooks()
 
 function placeBooks(){
     const sectionWithBooks = document.querySelector(".books");
-
+    document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
     for(let book of books){
         let div = document.createElement("div");
         div.classList.add("book-card");
@@ -27,6 +121,9 @@ function placeBooks(){
         img.src = book.img;
         let title = document.createElement("p");
         title.classList.add("title");
+        let author = document.createElement("p");
+        author.textContent = book.author;
+        author.style.fontSize = "medium";
         let price = document.createElement("p");
         price.classList.add("price");
         let buttons = document.createElement("div");
@@ -41,6 +138,7 @@ function placeBooks(){
         buttons.appendChild(buyButton);
         div.appendChild(img);
         div.appendChild(title);
+        div.appendChild(author);
         div.appendChild(price);
         div.appendChild(buttons);
 
@@ -49,8 +147,8 @@ function placeBooks(){
         sectionWithBooks.appendChild(div);
 
         addToCartButton.onclick = ()=>{
-            document.querySelector("#cartCounter").textContent =  Number(document.querySelector("#cartCounter").textContent)+1;
-
+            localStorage.cartCounter = Number(localStorage.cartCounter)+1;
+            document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
             localStorage.cart = localStorage.cart+";"+book.name;
         }
     }
@@ -96,17 +194,4 @@ burgerMenu();
 
 
 
-const boxes = document.querySelectorAll('.book-card');
 
-function CheckBoxes() {
-    const trig = (window.innerHeight/2.8);
-    for (const box of boxes){
-        const topOfBox = box.getBoundingClientRect().top;
-        if(topOfBox < trig){
-            box.classList.add('active');
-        }
-    }
-};
-
-CheckBoxes();
-window.addEventListener('scroll', CheckBoxes);

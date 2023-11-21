@@ -22,35 +22,80 @@ section
 section .color
 {
   position: absolute;
-  filter: blur(200px);
+  z-index: 0;
+  filter: blur(150px); 
 }
-
-section .color:nth-child(1)
-{
-  top: 10%;
-  width: 50%;
-  right: 50%;
-  height: 50%;
-  background: #FAC45B;
+body .color:nth-child(1) 
+{   
+  bottom: 65%;
+  left: 55%;
+  width: 30%;
+  height: 20%;
+  background: linear-gradient(180deg, #36E4DA 50%, #36E4DA 75.13%, rgba(54, 228, 218, 0.00) 161.6%);
 }
-
-section .color:nth-child(2)
+body .color:nth-child(2)
 {
-  bottom: 10%;
+  bottom: 40%;
   left: 60%;
-  width: 40%;
-  height: 70%;
-  background: #82b369;
-  
+  width: 25%;
+  height: 10%;
+  background:linear-gradient(180deg, #00DC82 50%, rgba(0, 220, 130, 0.85) 50.01%, rgba(0, 220, 130, 0.00) 161.6%);
 }
-
-section .color:nth-child(3)
+body .color:nth-child(3)
 {
-  bottom: 5%;
-  right: 30%;
-  width: 700%;
+  top: 20%;
+  left: 5%;
+  width: 20%;
   height: 30%;
-  background: #db5cdb;
+  background: #fbff17;
+}
+body .color:nth-child(4)
+{
+  bottom: 25%;
+  left: 4%;
+  width: 20%;
+  height: 25%;
+  background: #bf4e9f;
+}
+body .color:nth-child(5)
+{
+  top: 70%;
+  left: 20%;
+  width: 20%;
+  height: 25%;
+  background: rgb(31, 161, 48);
+}
+.color:nth-child(1), .color:nth-child(3), .color:nth-child(5)
+{
+  animation: animate 3s ease-in-out infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+@keyframes animate 
+{
+  0%,100%
+  {
+    transform: translateX(-50px);
+  }
+  50%
+  {
+    transform: translateX(50px);
+  }
+}
+.color:nth-child(2), .color:nth-child(4)
+{
+  animation: animate2 3s ease-in-out infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+@keyframes animate2 
+{
+  0%,100%
+  {
+    transform: translateY(-50px);
+  }
+  50%
+  {
+    transform: translateY(50px);
+  }
 }
 
 .container

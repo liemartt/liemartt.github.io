@@ -1,3 +1,4 @@
+document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
 function truncate(str, maxlength){
     if (str.length<=maxlength){
         return str;
