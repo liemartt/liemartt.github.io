@@ -124,7 +124,7 @@ function arrayFilter(minValue, maxValue, books){
 
 
 function placeBooks(fliteredBooks, sortAscending, sortDescending){
-    if(localStorage.cartCounter == undefined){
+    if(localStorage.cartCounter == "undefined"){
         localStorage.cartCounter = 0;
     }
     const sectionWithBooks = document.querySelector(".books");
@@ -171,7 +171,7 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
         sectionWithBooks.appendChild(div);
 
         addToCartButton.onclick = ()=>{
-            if(localStorage.cart==""||localStorage.cart=="undefined") localStorage.cart = JSON.stringify(book)+";";
+            if(localStorage.cart=="undefined") localStorage.cart = JSON.stringify(book)+";";
             else  localStorage.cart = localStorage.cart+JSON.stringify(book)+";";
             localStorage.cartCounter = Number(localStorage.cartCounter)+1;
             document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);

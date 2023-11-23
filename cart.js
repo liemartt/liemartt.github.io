@@ -26,15 +26,26 @@ function addBook(book){
 
 function loadCartPage(){
     // localStorage.cart = "";
-    // localStorage.cartCounter = 0;
-    let localStorageBooks = localStorage.cart.split(";");
+    // localStorage.cartCounter = 0; 
+    let section = document.querySelector(".books");
+    let localStorageBooks;
+    if(localStorage.cart!="undefined"){
+        localStorageBooks = localStorage.cart.split(";");
+    }
+    else{
+        let p = document.createElement("p");
+        p.textContent = "Здесь пусто..";
+        p.style.fontSize = "x-large";
+        section.appendChild(p);
+        return;
+    }
     cart = [];
     console.log(localStorageBooks)
     localStorageBooks.forEach(x=>{
         if(x!=""&&x!="undefined") cart.push(JSON.parse(x))
     });
     let usedBooks = [];
-    let section = document.querySelector(".books");
+   
     
     if(localStorage.cartCounter == undefined){
         localStorage.cartCounter = 0;
@@ -81,13 +92,7 @@ function loadCartPage(){
             usedBooks.push(book.name);
         }
     }
-    if(finalPrice==0){
-        let p = document.createElement("p");
-        p.textContent = "Здесь пусто..";
-        p.style.fontSize = "x-large";
-        section.appendChild(p);
-    }
-    else {
+    
         let button = document.createElement("button");
         button.id = "button_clear_cart";
         button.textContent = "Очистить корзину"
@@ -97,7 +102,6 @@ function loadCartPage(){
             localStorage.cartCounter = 0;
             location.reload();
         }
-    }
     document.querySelector(".total").querySelector("p").textContent = "Итого: "+finalPrice+"руб.";
     document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
 

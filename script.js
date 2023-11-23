@@ -37,7 +37,7 @@ for(var i = 0;i<addToCartButtons.length;i++){
 }
 
 function burgerMenu(){
-    if(localStorage.cartCounter == undefined){
+    if(localStorage.cartCounter == "undefined"){
         localStorage.cartCounter = 0;
     }
     const button = document.querySelector("#menu-toggle");
