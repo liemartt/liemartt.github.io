@@ -132,8 +132,12 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
     document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
     if(sortAscending) fliteredBooks.sort((a,b)=>a.price-b.price);
     else if(sortDescending) fliteredBooks.sort((a,b)=>b.price-a.price);
-
+    let counter = 0;
     for(let book of fliteredBooks){
+        if (counter==0) sectionWithBooks.innerHTML = sectionWithBooks.innerHTML + "<div id = 'newBooks' class='books-type'><p>Новинки</p></div>"
+        if (counter==10) sectionWithBooks.innerHTML = sectionWithBooks.innerHTML + "<div id = 'popularBooks' class='books-type'><p>Популярные</p></div>"
+        if (counter==20) sectionWithBooks.innerHTML = sectionWithBooks.innerHTML + "<div id = 'classicBooks' class='books-type'><p>Классика</p></div>"
+        counter++;
         let div = document.createElement("div");
         div.classList.add("book-card");
         let img = document.createElement("img");
@@ -220,16 +224,18 @@ function filter(){
     const maxValue =  document.querySelector("#maxPrice");
     const sortAscending =  document.querySelector(".sort-ascending");
     const sortDescending =  document.querySelector(".sort-descending");
-    
+    const priceDiv = document.querySelector(".price-filter");
+    const main = document.querySelector("#main");
     let isOpen = true;
     button.onclick = ()=>{
         isOpen = !isOpen
         if(!isOpen){
-            document.querySelector(".price-filter").style.opacity = "1";
+            priceDiv.style.transform = "translateX(10%)";
+            main.style.filter = "blur(100px)";
         }
         else{
-            document.querySelector(".price-filter").style.opacity = "0";
-
+            priceDiv.style.transform = "translateX(-100%)";
+            main.style.filter = "blur(0px)"
         }
     }
     filterButton.onclick = ()=>{

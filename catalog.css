@@ -115,14 +115,25 @@ nav img{
     margin: 20px auto;
 }
 
+.books-type{
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    background-color: #82b369;
+    height: 40px;
+    margin: 0 2.5%;
 
+}
+.books-type p{
+    font-size: 1.5rem;
+}
 .books{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    margin: 6% 15%;
-    gap:80px;   
+    margin: 0 10%;
+    gap:80px;
 }
 
 
@@ -132,9 +143,9 @@ nav img{
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
-    height: 420px;
     cursor: pointer;
     overflow-wrap: break-word;
+    max-height: fit-content;
     p{
         font-size: large;
         max-width: 200px;
@@ -194,16 +205,17 @@ nav img{
 }
 .price-filter {
     position: absolute;
-    width: fit-content;
+    width: 25%;
     text-align: center;
-    background-color: #fff;
+    background-color: #FFB000;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 5%;
     transition: all 1s;
-    opacity: 0;
-    z-index: 100;
+    opacity: 1;
+    transform: translateX(-100%);
+    z-index: 10;
 }
 .sort-ascending, .sort-descending{
     background-color: #FAC45B;
@@ -227,7 +239,7 @@ input[type="text"] {
     border-radius: 4px;
 }
 
-input[type="submit"] {
+input[type="button"] {
     width: 100%;
     padding: 10px;
     background-color: #333;
@@ -237,7 +249,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+input[type="button"]:hover {
     background-color: #555;
 }
 
@@ -319,6 +331,9 @@ footer img{
 
 }
 @media (max-width:800px){
+    .price-filter{
+        width: 50%;
+    }
     footer{ 
         justify-content: center;
     }    
@@ -343,8 +358,7 @@ footer img{
     }
     .book-card{
         max-width: 160px;
-        max-height: 320px;
-        margin-bottom: 40px;
+        max-height: fit-content;
     }
     .book-image{
         max-width: 180px;
