@@ -6,7 +6,6 @@
 }
 main{
     transition: all 0.5s;
-    padding-top: 100px;
 }
 header{
     position: fixed;
@@ -172,9 +171,9 @@ nav img{
     line-height: normal;
 }
 .price{
-    color: rgb(207, 70, 70);
+    color: rgb(32, 49, 202);
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -205,6 +204,7 @@ nav img{
     border-radius: 10%;
     width: fit-content;
     height: 40px;
+    margin-top: 100px;
     
 }
 .price-filter {
@@ -335,8 +335,14 @@ footer img{
 
 }
 @media (max-width:800px){
+    .mySlides-1, .mySlides-2, .mySlides-3{
+        max-height: 450px;
+    }
     .price-filter{
         width: 50%;
+    }
+    .filter{
+        margin-top:100px;
     }
     footer{ 
         justify-content: center;
@@ -360,13 +366,10 @@ footer img{
         margin: 0;
         gap:30px;
     }
-    .book-card{
-        max-width: 160px;
-        max-height: fit-content;
-    }
+
     .book-image{
-        max-width: 180px;
-        max-height: 250px;
+        max-width: 120px;
+        max-height: 150px;
     }
 
     #menu-button {
@@ -445,7 +448,7 @@ footer img{
     }
   }
 
-.slideshow-container {
+.slideshow-container-1, .slideshow-container-2, .slideshow-container-3 {
     max-width: 1000px;
     position: relative;
     margin: auto;
@@ -453,7 +456,7 @@ footer img{
   }
   
   /* Hide the images by default */
-  .mySlides {
+  .mySlides-1,.mySlides-2,.mySlides-3 {
     margin: 40px 0;
     display: flex;
     justify-items: center;
@@ -469,22 +472,21 @@ footer img{
   .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: rgb(235, 17, 17);
+    top: 40%;
+    padding: 6px;
+    color: #82b369;
+    background-color: #FAC45B;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 28px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    border-radius: 10px;
     user-select: none;
+    margin: 0 5px;
   }
   
   /* Position the "next button" to the right */
   .next {
     right: 0;
-    border-radius: 3px 0 0 3px;
   }
   
   /* On hover, add a black background color with a little bit see-through */
