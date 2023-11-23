@@ -123,11 +123,33 @@ function arrayFilter(minValue, maxValue, books){
 }
 
 
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "flex";
+
+}
 function placeBooks(fliteredBooks, sortAscending, sortDescending){
     if(localStorage.cartCounter == "undefined"){
         localStorage.cartCounter = 0;
     }
-    const sectionWithBooks = document.querySelector(".books");
+    const sectionWithBooks = document.querySelector(".slideshow-container");
     sectionWithBooks.innerHTML = "";
     document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
     if(sortAscending) fliteredBooks.sort((a,b)=>a.price-b.price);
@@ -166,7 +188,9 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
         }
         counter++;
         let div = document.createElement("div");
-        div.classList.add("book-card");
+        div.classList.add("mySlides");
+        div.classList.add("backFade");
+        div.classList.add("fade");
         let img = document.createElement("img");
         img.classList.add("book-image");
         img.src = book.img;
@@ -180,13 +204,9 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
         let buttons = document.createElement("div");
         buttons.classList.add("card-buttons");
         let addToCartButton = document.createElement("button");
-        let buyButton = document.createElement("button");
         addToCartButton.classList.add("card-button");
         addToCartButton.textContent = "В корзину";
-        buyButton.classList.add("card-button");
-        buyButton.textContent = "Купить";
         buttons.appendChild(addToCartButton);
-        buttons.appendChild(buyButton);
         div.appendChild(img);
         div.appendChild(title);
         div.appendChild(author);
@@ -205,8 +225,21 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
             document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
         }
     }
+
+    let prev = document.createElement("a");
+    prev.classList.add("prev");
+    prev.textContent = "←"
+    prev.onclick = ()=>plusSlides(-1);
+    sectionWithBooks.appendChild(prev);
+    let next = document.createElement("a");
+    next.classList.add("next");
+    next.textContent = "→"
+    next.onclick = ()=>plusSlides(1);
+    sectionWithBooks.appendChild(next);
 }
 placeBooks(books, false,false);
+var slideIndex = 1;
+showSlides(slideIndex);
 
 function burgerMenu(){
     const button = document.querySelector("#menu-toggle");
