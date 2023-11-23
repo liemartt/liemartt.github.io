@@ -1,4 +1,7 @@
 document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
+if(localStorage.cartCounter == undefined){
+    localStorage.cartCounter = 0;
+}
 function burgerMenu(){
     const button = document.querySelector("#menu-toggle");
     const label = document.querySelector("#menu-button");

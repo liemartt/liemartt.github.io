@@ -37,6 +37,9 @@ for(var i = 0;i<addToCartButtons.length;i++){
 }
 
 function burgerMenu(){
+    if(localStorage.cartCounter == undefined){
+        localStorage.cartCounter = 0;
+    }
     const button = document.querySelector("#menu-toggle");
     const label = document.querySelector("#menu-button");
     const firstLine = document.querySelector(".firstLine");
@@ -44,7 +47,6 @@ function burgerMenu(){
     const thirdLine = document.querySelector(".thirdLine");
     var isOpen = false;
     button.onclick = ()=>{
-        
         isOpen = !isOpen;
         if(isOpen){
             document.querySelector("#main").style.filter = "blur(10px)";

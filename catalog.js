@@ -62,7 +62,6 @@ var authors = [
     "Аркадий и Борис Стругацкие",
     "Владимир Набоков"
 ];
-// Все цены на книги (предположим, что цены выражены в целых числах)
 var prices = [
     1200,  
     800,   
@@ -92,10 +91,12 @@ var prices = [
     2000,  
     1700,  
     450,   
-    5600   
+    5600,
+    3450  
 ];
   
 var books = [];
+
 function Book(name, author, price, img){
     this.name = name;
     this.author = author;
@@ -105,15 +106,34 @@ function Book(name, author, price, img){
 
 function createBooks(){
     for(let i = 0; i<names.length; i++){
-        books.push(new Book(names[i], authors[i], prices[i], "book-images/book"+(i+1)+".jpg"));
+        books.push(new Book(names[i].split(".").at(1), authors[i], prices[i], "book-images/book"+(i+1)+".jpg"));
     }
 }
 createBooks()
 
-function placeBooks(){
+function arrayFilter(minValue, maxValue, books){
+    booksCopy = Object.assign([], books)
+    if(minValue!=undefined&&minValue!=null&&minValue!=""){
+        booksCopy = booksCopy.filter(x=>x.price>=minValue);
+    }
+    if(maxValue!=undefined&&maxValue!=null&&maxValue!="") {
+        booksCopy = booksCopy.filter(x=>x.price<=maxValue);
+    }
+    return booksCopy;
+}
+
+
+function placeBooks(fliteredBooks, sortAscending, sortDescending){
+    if(localStorage.cartCounter == undefined){
+        localStorage.cartCounter = 0;
+    }
     const sectionWithBooks = document.querySelector(".books");
+    sectionWithBooks.innerHTML = "";
     document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
-    for(let book of books){
+    if(sortAscending) fliteredBooks.sort((a,b)=>a.price-b.price);
+    else if(sortDescending) fliteredBooks.sort((a,b)=>b.price-a.price);
+
+    for(let book of fliteredBooks){
         let div = document.createElement("div");
         div.classList.add("book-card");
         let img = document.createElement("img");
@@ -147,13 +167,14 @@ function placeBooks(){
         sectionWithBooks.appendChild(div);
 
         addToCartButton.onclick = ()=>{
+            if(localStorage.cart==""||localStorage.cart=="undefined") localStorage.cart = JSON.stringify(book)+";";
+            else  localStorage.cart = localStorage.cart+JSON.stringify(book)+";";
             localStorage.cartCounter = Number(localStorage.cartCounter)+1;
             document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
-            localStorage.cart = localStorage.cart+";"+book.name;
         }
     }
 }
-placeBooks()
+placeBooks(books, false,false);
 
 function burgerMenu(){
     const button = document.querySelector("#menu-toggle");
@@ -191,6 +212,38 @@ function burgerMenu(){
 }
 burgerMenu();
 
+
+function filter(){
+    const button = document.querySelector(".filter");
+    const filterButton = document.querySelector("#submit-filter");
+    const minValue =  document.querySelector("#minPrice");
+    const maxValue =  document.querySelector("#maxPrice");
+    const sortAscending =  document.querySelector(".sort-ascending");
+    const sortDescending =  document.querySelector(".sort-descending");
+    
+    let isOpen = true;
+    button.onclick = ()=>{
+        isOpen = !isOpen
+        if(!isOpen){
+            document.querySelector(".price-filter").style.opacity = "1";
+        }
+        else{
+            document.querySelector(".price-filter").style.opacity = "0";
+
+        }
+    }
+    filterButton.onclick = ()=>{
+        if(sortAscending.checked)
+            placeBooks(arrayFilter(minValue.value, maxValue.value, books), sortAscending, false);
+        
+        else if (sortDescending.checked) placeBooks(arrayFilter(minValue.value, maxValue.value, books), false, sortDescending)
+        else placeBooks(arrayFilter(minValue.value, maxValue.value, books), false, false)
+    }
+
+
+    
+}
+filter()
 
 
 

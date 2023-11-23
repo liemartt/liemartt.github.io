@@ -30,11 +30,43 @@
 
     <main id = "main">
         <div class = "main-title"><h1 >Каталог</h1></div>
+        <button class = "filter">Фильтры</button>
+        <div class="price-filter">
+            <form autocomplete="off">
+                <label for="minPrice">Минимальная цена:</label>
+                <input type="text" id="minPrice" name="minPrice" placeholder="Минимальная цена">
+        
+                <label for="maxPrice">Максимальная цена:</label>
+                <input type="text" id="maxPrice" name="maxPrice" placeholder="Максимальная цена">
+                <!-- <fieldset>
+                    
+                    <legend></legend>
+                    <div>
+                        <input type = "radio" class = "sort-ascending" id = "sort-a" name="sort-a" value="sort-a"></input>
+                        <label for = "sort-a"></label>
 
+                        <input type = "radio" class = "sort-descending" id = "sort-d" name="sort-d" value="sort-d"></input>
+                        <label for = "sort-d">Сортировать по убыванию цены</label>
+                    </div>
+
+                </fieldset> -->
+                <fieldset>
+                    <legend>Выберите сортировку по цене:<br></legend>
+                        <input class = "sort-ascending" type = "radio" name = "sort" value="sort-a">
+                        <label for="sort-a">Сортировать по возрастанию цены</label><br>
+                        <input class = "sort-descending" type = "radio" name = "sort" value="sort-d">
+                        <label for="sort-d">Сортировать по убыванию цены</label><br>
+                </fieldset>
+                <input id = "submit-filter" type="button" value="Применить фильтр">
+
+            </form>
+        </div>
         <div class = "div-search">
+            
             <input type = "search" class = "input-search" placeholder = "Cейчас поищем...">
             <a href = #><img src = "images/search-icon.svg"></a>
         </div>
+
 
 
         <section class = "books"></section>
