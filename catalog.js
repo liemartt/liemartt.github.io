@@ -133,10 +133,37 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
     if(sortAscending) fliteredBooks.sort((a,b)=>a.price-b.price);
     else if(sortDescending) fliteredBooks.sort((a,b)=>b.price-a.price);
     let counter = 0;
+
     for(let book of fliteredBooks){
-        if (counter==0) sectionWithBooks.innerHTML = sectionWithBooks.innerHTML + "<div id = 'newBooks' class='books-type'><p>Новинки</p></div>"
-        if (counter==10) sectionWithBooks.innerHTML = sectionWithBooks.innerHTML + "<div id = 'popularBooks' class='books-type'><p>Популярные</p></div>"
-        if (counter==20) sectionWithBooks.innerHTML = sectionWithBooks.innerHTML + "<div id = 'classicBooks' class='books-type'><p>Классика</p></div>"
+        if (counter==0){
+            let divBooksType = document.createElement("div");
+            let p = document.createElement("p");
+            p.textContent = "Новые"
+            divBooksType.classList.add("books-type");
+            divBooksType.id = "newBooks";
+            divBooksType.appendChild(p);
+            sectionWithBooks.appendChild(divBooksType);
+        }
+        if (counter==10){
+            let divBooksType = document.createElement("div");
+            let p = document.createElement("p");
+            p.textContent = "Популярные"
+            divBooksType.classList.add("books-type");
+            divBooksType.id = "popularBooks";
+            divBooksType.appendChild(p);
+            sectionWithBooks.appendChild(divBooksType);
+
+        }
+        if (counter==20){
+            let divBooksType = document.createElement("div");
+            let p = document.createElement("p");
+            p.textContent = "Классические"
+            divBooksType.classList.add("books-type");
+            divBooksType.id = "classicBooks";
+            divBooksType.appendChild(p);
+            sectionWithBooks.appendChild(divBooksType);
+
+        }
         counter++;
         let div = document.createElement("div");
         div.classList.add("book-card");
@@ -171,6 +198,7 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
         sectionWithBooks.appendChild(div);
 
         addToCartButton.onclick = ()=>{
+            console.log("123")
             if(localStorage.cart=="undefined") localStorage.cart = JSON.stringify(book)+";";
             else  localStorage.cart = localStorage.cart+JSON.stringify(book)+";";
             localStorage.cartCounter = Number(localStorage.cartCounter)+1;

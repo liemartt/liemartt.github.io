@@ -6,14 +6,14 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 
+main{
+    padding-top: 100px;
+}
 header{
+    position: fixed;
+    width: 100%;
+    opacity: 90%;
     display: flex;
     flex-flow: row wrap;
     height: 100px;
@@ -57,9 +57,8 @@ nav ul a{
 }
 
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;

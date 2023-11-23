@@ -1,4 +1,14 @@
-document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
+if(localStorage.cartCounter!="undefined"&&localStorage.cartCounter!=undefined)
+    document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
+else {
+    localStorage.cartCounter = 0;
+    document.querySelector("#cartCounter").textContent =  Number(localStorage.cartCounter);
+}
+if(localStorage.cart=="undefined"||localStorage.cart==undefined){
+    localStorage.cart = "";
+}
+
+
 function truncate(str, maxlength){
     if (str.length<=maxlength){
         return str;

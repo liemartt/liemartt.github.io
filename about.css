@@ -4,10 +4,14 @@
     box-sizing: border-box;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-#main{
+main{
     transition: all 0.5s;
+    padding-top: 100px;
 }
 header{
+    position: fixed;
+    width: 100%;
+    opacity: 90%;
     display: flex;
     flex-flow: row wrap;
     height: 100px;

@@ -4,8 +4,13 @@
     box-sizing: border-box;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+main{
+    padding-top: 5%;
+}
 header{
+    position: fixed;
+    width: 100%;
+    opacity: 90%;
     display: flex;
     flex-flow: row wrap;
     height: 100px;
@@ -418,6 +423,9 @@ footer img{
 
 }
 @media (max-width:800px){
+    main{
+        padding-top: 100px;
+    }
     footer{ 
         justify-content: center;
     }

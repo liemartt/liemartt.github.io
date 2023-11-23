@@ -25,11 +25,10 @@ function addBook(book){
 
 
 function loadCartPage(){
-    // localStorage.cart = "";
-    // localStorage.cartCounter = 0; 
+
     let section = document.querySelector(".books");
     let localStorageBooks;
-    if(localStorage.cart!="undefined"){
+    if(localStorage.cart!="undefined"&&localStorage.cart!=""&&localStorage.cart!=undefined){
         localStorageBooks = localStorage.cart.split(";");
     }
     else{
