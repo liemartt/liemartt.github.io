@@ -6,6 +6,7 @@
 }
 main{
     transition: all 0.5s;
+    padding-top: 100px;
 }
 header{
     position: fixed;
@@ -121,14 +122,13 @@ nav img{
     display: flex;
     justify-content: center;
     width: 95%;
-    background-color: #82b369;
     height: 40px;
     margin: 0 2.5%;
 
 }
 .books-type p{
-    font-size: 1.5rem;
-    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif */
+    font-size: 1.6rem;
+    text-decoration: underline;
 }
 .books{
     display: flex;
@@ -457,6 +457,7 @@ footer img{
   
   /* Hide the images by default */
   .mySlides-1,.mySlides-2,.mySlides-3 {
+    width: 100%;
     margin: 40px 0;
     display: flex;
     justify-items: center;
@@ -466,6 +467,9 @@ footer img{
     opacity: 1;
     transform: translateX(0%);
     transition: 0.5s;
+    border-width: 2px;
+    border-color: #000;
+    border-style: groove;
   }
   
   /* Next & previous buttons */
@@ -474,7 +478,7 @@ footer img{
     position: absolute;
     top: 40%;
     padding: 6px;
-    color: #82b369;
+    color: #000000;
     background-color: #FAC45B;
     font-weight: bold;
     font-size: 28px;
