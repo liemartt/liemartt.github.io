@@ -120,10 +120,16 @@ nav img{
 
 .books-type{
     display: flex;
+    align-items: flex-start;
+    border-radius: 8px;
+    background: rgba(254, 182, 42, 0.25);
+    width: 100%;
+    margin-top: 54px;
+    margin-bottom: 36px;
+    font-size: 26px;
+    height: 47px;
     justify-content: center;
-    width: 95%;
-    height: 40px;
-    margin: 0 2.5%;
+    align-items: center;
 
 }
 .books-type p{
