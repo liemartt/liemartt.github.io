@@ -84,8 +84,11 @@ function loadCartPage(){
             divBookDetails.appendChild(count);
             div.appendChild(img);
             div.appendChild(divBookDetails);
-            div.appendChild(buttonDelete);
-            div.appendChild(buttonAdd);
+            let buttons = document.createElement("div");
+            buttons.classList.add("cart-buttons");
+            buttons.appendChild(buttonDelete);
+            buttons.appendChild(buttonAdd);
+            div.appendChild(buttons);
             section.appendChild(div);
             finalPrice+=Number(book.price*bookCount);
             usedBooks.push(book.name);

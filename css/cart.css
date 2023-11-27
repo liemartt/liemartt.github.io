@@ -253,7 +253,13 @@ button:hover {
 
 
 
-
+.cart-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 10px;
+    height: fit-content;
+    gap:3px
+}
 
 footer{
     display: flex;
@@ -329,6 +335,9 @@ footer img{
 
 }
 @media (max-width:800px){
+    .book-card{
+        flex-flow: column wrap;
+    }
     footer{ 
         justify-content: center;
     }    
