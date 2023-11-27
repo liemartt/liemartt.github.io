@@ -433,6 +433,8 @@ footer img{
     }
     .slideshow-container-1, .slideshow-container-2, .slideshow-container-3 {
         flex-flow: column wrap;
+    height: 400px;
+
     }
     .title{
         max-width: 80%;
@@ -468,7 +470,6 @@ footer img{
     border-color: #000;
     border-style: groove;
     border-radius: 5%;
-    height: 400px;
   }
   
   /* Hide the images by default */

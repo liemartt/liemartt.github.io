@@ -23,7 +23,6 @@ function addBook(book){
     loadCartPage();
 }
 
-
 function loadCartPage(){
 
     let section = document.querySelector(".books");
@@ -109,7 +108,6 @@ function loadCartPage(){
 
 }
 loadCartPage();
-
 
 
 function burgerMenu(){

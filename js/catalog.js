@@ -111,28 +111,11 @@ function createBooks(){
 }
 createBooks()
 
-function arrayFilter(minValue, maxValue, books){
-    booksCopy = Object.assign([], books)
-    if(minValue!=undefined&&minValue!=null&&minValue!=""){
-        booksCopy = booksCopy.filter(x=>x.price>=minValue);
-    }
-    if(maxValue!=undefined&&maxValue!=null&&maxValue!="") {
-        booksCopy = booksCopy.filter(x=>x.price<=maxValue);
-    }
-    return booksCopy;
-}
 
-
-
-// Next/previous controls
 function plusSlides(n, m) {
   showSlides(slideIndex += n, m);
 }
 
-// Thumbnail image controls
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
 
 function showSlides(n, num) {
   let i;
@@ -250,6 +233,7 @@ showSlides(slideIndex, 1);
 showSlides(slideIndex, 2);
 showSlides(slideIndex, 3);
 
+
 function burgerMenu(){
     const button = document.querySelector("#menu-toggle");
     const label = document.querySelector("#menu-button");
@@ -285,42 +269,4 @@ function burgerMenu(){
     }
 }
 burgerMenu();
-
-
-function filter(){
-    const button = document.querySelector(".filter");
-    const filterButton = document.querySelector("#submit-filter");
-    const minValue =  document.querySelector("#minPrice");
-    const maxValue =  document.querySelector("#maxPrice");
-    const sortAscending =  document.querySelector(".sort-ascending");
-    const sortDescending =  document.querySelector(".sort-descending");
-    const priceDiv = document.querySelector(".price-filter");
-    const main = document.querySelector("#main");
-    let isOpen = true;
-    button.onclick = ()=>{
-        isOpen = !isOpen
-        if(!isOpen){
-            priceDiv.style.transform = "translateX(10%)";
-            main.style.filter = "blur(100px)";
-        }
-        else{
-            priceDiv.style.transform = "translateX(-100%)";
-            main.style.filter = "blur(0px)"
-        }
-    }
-    filterButton.onclick = ()=>{
-        if(sortAscending.checked)
-            placeBooks(arrayFilter(minValue.value, maxValue.value, books), sortAscending, false);
-        
-        else if (sortDescending.checked) placeBooks(arrayFilter(minValue.value, maxValue.value, books), false, sortDescending)
-        else placeBooks(arrayFilter(minValue.value, maxValue.value, books), false, false)
-    }
-
-
-    
-}
-filter()
-
-
-
 
