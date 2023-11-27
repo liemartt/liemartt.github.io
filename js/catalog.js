@@ -161,35 +161,7 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
     let counter = 0;
 
     for(let book of fliteredBooks){
-        if (counter==0){
-            let divBooksType = document.createElement("div");
-            let p = document.createElement("p");
-            p.textContent = "Новые"
-            divBooksType.classList.add("books-type");
-            divBooksType.id = "newBooks";
-            divBooksType.appendChild(p);
-            sectionWithBooks1.appendChild(divBooksType);
-        }
-        if (counter==10){
-            let divBooksType = document.createElement("div");
-            let p = document.createElement("p");
-            p.textContent = "Популярные"
-            divBooksType.classList.add("books-type");
-            divBooksType.id = "popularBooks";
-            divBooksType.appendChild(p);
-            sectionWithBooks2.appendChild(divBooksType);
-
-        }
-        if (counter==20){
-            let divBooksType = document.createElement("div");
-            let p = document.createElement("p");
-            p.textContent = "Классические"
-            divBooksType.classList.add("books-type");
-            divBooksType.id = "classicBooks";
-            divBooksType.appendChild(p);
-            sectionWithBooks3.appendChild(divBooksType);
-
-        }
+        
         counter++;
         let div = document.createElement("div");
         div.classList.add("fade");
