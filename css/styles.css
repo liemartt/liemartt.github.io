@@ -382,6 +382,7 @@ footer img{
     line-height: normal;
     text-decoration: none;
   }
+
 .a::before, .card::before {
     content: '';
     position: absolute;

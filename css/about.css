@@ -164,12 +164,23 @@ footer img{
     transition: transform .3s ease-in-out;
 
 }
+.text{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 30px 30%;
+    width: 40%;
+
+  }
 
 .a:hover::before, .card:hover::before {
   transform: scaleX(1);
 }
 
 @media (max-width:800px){
+    .text{
+        margin: 30px 5%;
+        width: 90%;
+    }
     footer{ 
         justify-content: center;
     }    
