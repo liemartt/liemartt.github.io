@@ -42,7 +42,7 @@ var authors = [
     "Дж.Р.Р. Толкиен",
     "Эрих Мария Ремарк",
     "Филип К. Дик",
-    "Фрэнсис Скотт Фицджеральд",
+    "Фрэнсис Скотт ",
     "Антуан де Сент-Экзюпери",
     "Джоан Роулинг",
     "Айн Рэнд",
@@ -110,75 +110,24 @@ function createBooks(){
     }
 }
 createBooks()
-const totalSlides = 10;
-var currentIndex1 = 0;
-var currentIndex2 = 0;
-var currentIndex3 = 0;
 
-function updateSlider(slider, currentIndex) {
-    width = document.documentElement.offsetWidth<=800?220:450;
-  slider.style.transform = `translateX(${-currentIndex * width}px)`;
+
+function plusSlides(n, m) {
+  showSlides(slideIndex += n, m);
 }
 
-function nextSlide(slider, n) {
-    let numberOfVisibleBooks = document.documentElement.offsetWidth<=800?1:4;
 
-    if(n==1){
-        currentIndex1++;
-        if (currentIndex1 > totalSlides - numberOfVisibleBooks) {
-            currentIndex1 = 0;
-        }
-        updateSlider(slider, currentIndex1);
+function showSlides(n, num) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides-"+num);
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "flex";
 
-    }
-    else if(n==2){
-        currentIndex2++;
-        if (currentIndex2 > totalSlides - numberOfVisibleBooks) {
-            currentIndex2 = 0;
-        }
-        updateSlider(slider, currentIndex2);
-
-    }
-    else if(n==3){
-        currentIndex3++;
-        if (currentIndex3 > totalSlides - numberOfVisibleBooks) {
-            currentIndex3 = 0;
-        }
-        updateSlider(slider, currentIndex3);
-
-    }
-  
 }
-
-function prevSlide(slider, n) {
-    let numberOfVisibleBooks = document.documentElement.offsetWidth<=800?1:4;
-
-    if(n==1){
-        currentIndex1--;
-        if (currentIndex1 <0) {
-            currentIndex1 = totalSlides - numberOfVisibleBooks;
-        }
-        updateSlider(slider, currentIndex1);
-
-    }
-    else if(n==2){
-        currentIndex2--;
-        if (currentIndex2 <0) {
-            currentIndex2 = totalSlides - numberOfVisibleBooks;
-        }
-        updateSlider(slider, currentIndex2);
-
-    }
-    else if(n==3){
-        currentIndex3--;
-        if (currentIndex3 <0) {
-            currentIndex3 = totalSlides - numberOfVisibleBooks;
-        }
-        updateSlider(slider, currentIndex3);
-
-    }
-}
-
 function placeBooks(fliteredBooks, sortAscending, sortDescending){
     if(localStorage.cartCounter == "undefined"){
         localStorage.cartCounter = 0;
@@ -186,9 +135,6 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
     const sectionWithBooks1 = document.querySelector(".slideshow-container-1");
     const sectionWithBooks2 = document.querySelector(".slideshow-container-2");
     const sectionWithBooks3 = document.querySelector(".slideshow-container-3");
-    const slider1 = document.querySelector(".slider1");
-    const slider2 = document.querySelector(".slider2");
-    const slider3 = document.querySelector(".slider3");
     sectionWithBooks1.innerHTML = "";
     sectionWithBooks2.innerHTML = "";
     sectionWithBooks3.innerHTML = "";
@@ -216,10 +162,10 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
         buttons.classList.add("card-buttons");
         let addToCartButton = document.createElement("button");
         addToCartButton.classList.add("card-button");
-        let imgCart = document.createElement("img");
-        imgCart.classList.add("imgCart");
-        imgCart.src = "images/shopping_cart.png";
-        addToCartButton.appendChild(imgCart)
+        let imgg = document.createElement("img");
+        imgg.style.width = "20px";
+        imgg.src = "images/shopping_cart.png";
+        addToCartButton.appendChild(imgg);
         buttons.appendChild(addToCartButton);
         div.appendChild(img);
         div.appendChild(title);
@@ -231,16 +177,15 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
         price.textContent = book.price+"p";
         if(counter<=10){
             div.classList.add("mySlides-1");
-            slider1.appendChild(div);
-            
+            sectionWithBooks1.appendChild(div);
         }
         else if(counter<=20){
             div.classList.add("mySlides-2");
-            slider2.appendChild(div);
+            sectionWithBooks2.appendChild(div);
         }
         else{
             div.classList.add("mySlides-3");
-            slider3.appendChild(div);
+            sectionWithBooks3.appendChild(div);
         }
 
         addToCartButton.onclick = ()=>{
@@ -255,40 +200,42 @@ function placeBooks(fliteredBooks, sortAscending, sortDescending){
     let prev = document.createElement("a");
     prev.classList.add("prev");
     prev.textContent = "←"
-    prev.onclick = ()=>prevSlide(document.querySelector(".slider1"), 1);
+    prev.onclick = ()=>plusSlides(-1, 1);
     sectionWithBooks1.appendChild(prev);
     let prev2 = document.createElement("a");
     prev2.classList.add("prev");
     prev2.textContent = "←"
-    prev2.onclick = ()=>prevSlide(document.querySelector(".slider2"), 2);
+    prev2.onclick = ()=>plusSlides(-1, 2);
     sectionWithBooks2.appendChild(prev2);
     let prev3 = document.createElement("a");
     prev3.classList.add("prev");
     prev3.textContent = "←"
-    prev3.onclick = ()=>prevSlide(document.querySelector(".slider3"), 3);
+    prev3.onclick = ()=>plusSlides(-1, 3);
     sectionWithBooks3.appendChild(prev3);
 
 
     let next = document.createElement("a");
     next.classList.add("next");
     next.textContent = "→"
-    next.onclick = ()=>nextSlide(document.querySelector(".slider1"), 1);
+    next.onclick = ()=>plusSlides(1, 1);
     sectionWithBooks1.appendChild(next);
     let next2 = document.createElement("a");
     next2.textContent = "→"
     next2.classList.add("next");
-    next2.onclick = ()=>nextSlide(document.querySelector(".slider2"), 2);
+    next2.onclick = ()=>plusSlides(1, 2);
     sectionWithBooks2.appendChild(next2);
     let next3 = document.createElement("a");
     next3.textContent = "→"
     next3.classList.add("next");
-    next3.onclick = ()=>nextSlide(document.querySelector(".slider3"), 3);
+    next3.onclick = ()=>plusSlides(1, 3);
     sectionWithBooks3.appendChild(next3);
-    sectionWithBooks1.appendChild(slider1);
-    sectionWithBooks2.appendChild(slider2);
-    sectionWithBooks3.appendChild(slider3);
 }
 placeBooks(books, false,false);
+var slideIndex = 1;
+showSlides(slideIndex, 1);
+showSlides(slideIndex, 2);
+showSlides(slideIndex, 3);
+
 
 function burgerMenu(){
     const button = document.querySelector("#menu-toggle");
@@ -325,6 +272,3 @@ function burgerMenu(){
     }
 }
 burgerMenu();
-
-
-

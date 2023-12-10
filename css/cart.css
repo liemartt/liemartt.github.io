@@ -270,8 +270,8 @@ footer{
     gap: 113px;
     flex-shrink: 0;
     background: #FAC45B;
-    margin-top: 50px;
     padding: 34px 64px;
+    margin-top: 7%;
 
 }
 
@@ -285,10 +285,12 @@ footer img{
 }
 .div-footer{
     display:flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
     gap: 18px;
-    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
 }
+
 
 .div-footer a {
     position: relative;

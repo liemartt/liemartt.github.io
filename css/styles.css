@@ -367,9 +367,10 @@ footer img{
 }
 .div-footer{
     display:flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
     gap: 18px;
-    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .div-footer a {
@@ -422,6 +423,9 @@ footer img{
         display: none;
     }
 
+}
+main{
+    padding-top: 100px;
 }
 @media (max-width:800px){
     main{

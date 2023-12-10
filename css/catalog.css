@@ -123,8 +123,8 @@ nav img{
     align-items: flex-start;
     border-radius: 8px;
     background: rgba(254, 182, 42, 0.25);
-    width: 70%;
-    margin: 2% 15%;
+    width: 90%;
+    margin: 2% 5%;
     font-size: 26px;
     height: 47px;
     justify-content: center;
@@ -291,7 +291,7 @@ footer img{
 }
 .div-footer{
     display:flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     gap: 18px;
     justify-content: space-between;
     width: 100%;
@@ -306,12 +306,6 @@ footer img{
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
-  }
-  .text{
-    font-size: 1.3rem;
-    font-style: italic;
-    width: 70%;
-    margin: 10px 15%;
   }
 .a::before, .card::before {
     content: '';
@@ -437,23 +431,13 @@ footer img{
     .proposals div{
         width: 100%;
     }
-    /* .slideshow-container-1, .slideshow-container-2, .slideshow-container-3 {
+    .slideshow-container-1, .slideshow-container-2, .slideshow-container-3 {
         flex-flow: column wrap;
     height: 400px;
 
-    } */
-    .fade{
-        max-width: 220px;
     }
-    .mySlides-1,.mySlides-2,.mySlides-3{
-        width: 100px;
-        margin: 0;
-    }
-    .slider1, .slider2, .slider3{
-        margin-left: 30px
-    }
-    .slideshow-container-1{
-        height: 500px;
+    .title{
+        max-width: 80%;
     }
 
 }
@@ -478,9 +462,7 @@ footer img{
   }
 
 .slideshow-container-1, .slideshow-container-2, .slideshow-container-3 {
-    display: flex;
-    flex-flow: row nowrap;
-    width: 70%;  
+    width: 70%;
     position: relative;
     margin: 0 15%;
     overflow: hidden;
@@ -488,13 +470,11 @@ footer img{
     border-color: #000;
     border-style: groove;
     border-radius: 5%;
-    overflow: hidden;
-    
   }
   
   /* Hide the images by default */
   .mySlides-1,.mySlides-2,.mySlides-3 {
-    width: 450px;
+    width: 100%;
     margin: 40px 0;
     display: flex;
     justify-items: center;
@@ -520,7 +500,6 @@ footer img{
     border-radius: 10px;
     user-select: none;
     margin: 0 5px;
-    z-index: 10;
   }
   
   /* Position the "next button" to the right */
@@ -532,11 +511,8 @@ footer img{
   .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
   }
-  .slider1,.slider2, .slider3{
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    flex-flow: row nowrap;
-  }
-  .imgCart{
-    width: 15px;
+  .text{
+    font-size: 1.5rem;
+    width: 70%;
+    margin: 10px 15%;
   }
