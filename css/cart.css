@@ -135,8 +135,8 @@ nav img{
     justify-content: center;
     align-items: center;
     gap: 48px;
-    margin: 0 10%;
-    min-height: 40vh;
+    margin: 10% 10%;
+    min-height: 70vh;
 }
 
 
@@ -271,7 +271,7 @@ footer{
     flex-shrink: 0;
     background: #FAC45B;
     padding: 34px 64px;
-    margin-top: 7%;
+    /* margin-top: 15%; */
 
 }
 
